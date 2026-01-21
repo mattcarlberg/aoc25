@@ -1,4 +1,4 @@
-INPUT_FILE = "large_input_part1.txt"
+INPUT_FILE = "large_input.txt"
 
 commands = []
 
@@ -28,12 +28,13 @@ dial = 50
 for command in commands:
     direction = command[0] 
     amount = command[1]
-    if direction == "R":
-        dial = (dial + amount)%100
-    else:
-        dial = (dial - amount)%100
-    if dial == 0:
-        count_zero = count_zero + 1
+    for i in range(amount):
+        if direction == "R":
+            dial = (dial + 1)%100
+        else:
+            dial = (dial - 1)%100
+        if dial == 0:
+            count_zero = count_zero + 1
 
 
 print(count_zero)
